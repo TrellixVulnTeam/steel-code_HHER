@@ -1,0 +1,19 @@
+epoch: 300
+
+LearningRate:
+  base_lr: 0.01
+  schedulers:
+  - !CosineDecay
+    max_epochs: 300
+    use_warmup: True
+  - !LinearWarmup
+    start_factor: 0.
+    steps: 1200
+
+OptimizerBuilder:
+  optimizer:
+    momentum: 0.9
+    type: Momentum
+  regularizer:
+    factor: 0.0001
+    type: L2
